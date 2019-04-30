@@ -35,7 +35,7 @@ RSpec.configure do |config|
   p services
 
   Capybara.register_driver :chrome_driver do |app|
-    Capybara::Selenium::Driver.new(app, browser: :firefox, service: services)
+    Capybara::Selenium::Driver.new(app, browser: :chrome, service: services)
   end
 
   Capybara.configure do |capybara|
