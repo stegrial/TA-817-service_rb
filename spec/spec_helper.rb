@@ -34,15 +34,19 @@ RSpec.configure do |config|
   # })
   p services
 
-  Capybara.register_driver :chrome_driver do |app|
+  Capybara.register_driver :driver do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome, service: services)
   end
+
+  # Capybara.register_driver :chrome_driver do |app|
+  #   Capybara::Selenium::Driver.new(app, browser: :firefox, service: services)
+  # end
 
   Capybara.configure do |capybara|
     capybara.run_server = false
     capybara.default_max_wait_time = 5
 
-    capybara.default_driver = :chrome_driver
+    capybara.default_driver = :driver
   end
 
   config.include Capybara::DSL
